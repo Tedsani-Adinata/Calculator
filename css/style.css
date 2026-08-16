@@ -1,0 +1,353 @@
+/* Reset dasar dan setel font */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    /* Latar belakang abu-abu sangat muda/bersih khas Soft UI */
+    background-color: #F2F2F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: #1C1C1E;
+}
+
+/* Kontainer utama kalkulator */
+.calculator {
+    background-color: #FFFFFF;
+    border-radius: 36px; /* Sudut sangat membulat, friendly */
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03); /* Soft, diffused shadow */
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Layar Kalkulator */
+.display {
+    padding: 20px 10px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    word-wrap: break-word;
+    word-break: break-all;
+    min-height: 140px;
+    /* Tanpa border dan background transparan/putih untuk kesan seamless */
+}
+
+.previous-operand {
+    font-size: 1.2rem;
+    color: #8E8E93; /* Warna abu-abu lembut */
+    font-weight: 500;
+    min-height: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.current-operand {
+    font-size: 4.5rem;
+    color: #1C1C1E; /* Hitam solid (off-black) */
+    font-weight: 400;
+    letter-spacing: -2px; /* Kesan modern typography */
+    line-height: 1;
+    transform-origin: right center;
+}
+
+/* Grid Layout untuk Tombol */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+/* Styling Dasar Tombol Soft UI */
+.btn {
+    border: none;
+    border-radius: 24px; /* Squircle / rounded rectangle */
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 22px 10px;
+    cursor: pointer;
+    background-color: #F2F2F7; /* Abu-abu terang */
+    color: #1C1C1E;
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s ease, box-shadow 0.15s ease;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover effect */
+.btn:hover {
+    background-color: #E5E5EA;
+}
+
+/* Efek saat tombol ditekan (Scale down lembut) */
+.btn:active, .btn.active {
+    transform: scale(0.92);
+    background-color: #D1D1D6;
+}
+
+/* Warna aksen untuk operator (Biru muda Soft UI) */
+.btn-operator {
+    background-color: #EBF4FF;
+    color: #007AFF; /* Revolut/iOS blue */
+}
+.btn-operator:hover {
+    background-color: #D6E8FF;
+}
+.btn-operator:active, .btn-operator.active {
+    background-color: #C2DCFF;
+}
+
+/* Tombol sama dengan (Aksen utama menonjol) */
+.btn-equals {
+    background-color: #007AFF;
+    color: #FFFFFF;
+    box-shadow: 0 8px 20px rgba(0, 122, 255, 0.3); /* Subtle colored shadow */
+}
+.btn-equals:hover {
+    background-color: #0066D6;
+}
+.btn-equals:active, .btn-equals.active {
+    background-color: #0052AB;
+    box-shadow: 0 4px 10px rgba(0, 122, 255, 0.2);
+}
+
+/* Tombol aksi (Clear, Delete) - Merah lembut */
+.btn-action {
+    background-color: #FFEBEE;
+    color: #FF3B30;
+}
+.btn-action:hover {
+    background-color: #FFD6DA;
+}
+.btn-action:active, .btn-action.active {
+    background-color: #FFC2C7;
+}
+
+/* Utility class untuk tombol yang memakan 2 kolom */
+.span-2 {
+    grid-column: span 2;
+}
+
+/* Responsivitas */
+@media (max-width: 480px) {
+    .calculator {
+        padding: 20px;
+        gap: 15px;
+        border-radius: 28px;
+    }
+    .display {
+        padding: 10px;
+        min-height: 120px;
+    }
+    .current-operand {
+        font-size: 3.5rem;
+    }
+    .btn {
+        padding: 18px 5px;
+        font-size: 1.4rem;
+        border-radius: 20px;
+    }
+}
+
+/* Animasi Teks Display */
+@keyframes fadeSlideIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-update {
+    animation: fadeSlideIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes popOut {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.05); color: #007AFF; }
+    100% { transform: scale(1); color: #1C1C1E; }
+}
+
+.animate-pop {
+    animation: popOut 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- Paywall Modal (Joke - Soft UI Style) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(242, 242, 247, 0.85); /* Sesuai body background */
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 20px;
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-overlay.hidden .modal-content {
+    transform: scale(0.85) translateY(30px);
+}
+
+.modal-content {
+    background: #FFFFFF;
+    color: #1C1C1E;
+    padding: 30px;
+    border-radius: 36px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
+    transform: scale(1) translateY(0);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+}
+
+.modal-content .subtitle {
+    color: #8E8E93;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.pricing-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.card {
+    background: #F2F2F7;
+    border-radius: 24px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.card.highlight {
+    background: #EBF4FF;
+    border: 1px solid #C2DCFF;
+}
+
+.card .badge {
+    position: absolute;
+    top: -12px; right: 20px;
+    background: #007AFF;
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.card-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1C1C1E;
+}
+
+.card-header .price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1C1C1E;
+}
+.card-header .price span {
+    font-size: 0.8rem;
+    color: #8E8E93;
+    font-weight: 400;
+}
+
+.card .desc {
+    color: #8E8E93;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.plan-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s, background-color 0.15s, box-shadow 0.15s;
+    outline: none;
+}
+
+.primary-btn {
+    background: #007AFF;
+    color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(0, 122, 255, 0.2);
+}
+.primary-btn:hover {
+    background: #0066D6;
+}
+.primary-btn:active {
+    transform: scale(0.96);
+    background: #0052AB;
+}
+
+.secondary-btn {
+    background: #E5E5EA;
+    color: #1C1C1E;
+}
+.secondary-btn:hover {
+    background: #D1D1D6;
+}
+.secondary-btn:active {
+    transform: scale(0.96);
+    background: #C7C7CC;
+}
+
+.close-modal {
+    margin-top: 25px;
+    background: transparent;
+    border: none;
+    color: #8E8E93;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.close-modal:hover {
+    color: #1C1C1E;
+}
+
+/* Responsif untuk modal */
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 25px 20px;
+        border-radius: 28px;
+    }
+}

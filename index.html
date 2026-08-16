@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Neo-Brutalism</title>
+    <!-- Font Google: Inter untuk kesan Soft UI yang bersih dan modern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="calculator">
+        <!-- Layar Kalkulator -->
+        <div class="display">
+            <div class="previous-operand" id="previous-operand"></div>
+            <div class="current-operand" id="current-operand">0</div>
+        </div>
+        
+        <!-- Tombol-tombol -->
+        <div class="buttons">
+            <button class="btn btn-action span-2" id="btn-clear">C</button>
+            <button class="btn btn-action" id="btn-delete">DEL</button>
+            <button class="btn btn-operator" data-operator="÷">÷</button>
+
+            <button class="btn btn-number" data-number="7">7</button>
+            <button class="btn btn-number" data-number="8">8</button>
+            <button class="btn btn-number" data-number="9">9</button>
+            <button class="btn btn-operator" data-operator="×">×</button>
+
+            <button class="btn btn-number" data-number="4">4</button>
+            <button class="btn btn-number" data-number="5">5</button>
+            <button class="btn btn-number" data-number="6">6</button>
+            <button class="btn btn-operator" data-operator="-">-</button>
+
+            <button class="btn btn-number" data-number="1">1</button>
+            <button class="btn btn-number" data-number="2">2</button>
+            <button class="btn btn-number" data-number="3">3</button>
+            <button class="btn btn-operator" data-operator="+">+</button>
+
+            <button class="btn btn-number span-2" data-number="0">0</button>
+            <button class="btn btn-number" data-number=".">.</button>
+            <button class="btn btn-equals" id="btn-equals">=</button>
+        </div>
+    </div>
+
+    <!-- Paywall Modal (Joke) -->
+    <div id="paywall-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>Unlock Result</h2>
+            <p class="subtitle">Upgrade your plan to compute numbers larger than 0.</p>
+            
+            <div class="pricing-cards">
+                <!-- Premium Plan -->
+                <div class="card highlight">
+                    <div class="badge">PRO</div>
+                    <div class="card-header">
+                        <h3>Premium Tier</h3>
+                        <div class="price">Rp 10,000<span>/mo</span></div>
+                    </div>
+                    <p class="desc">Access to multiplication (×) and division (÷) operations.</p>
+                    <button class="plan-btn primary-btn">Subscribe to Premium</button>
+                </div>
+
+                <!-- Basic Plan -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Basic Tier</h3>
+                        <div class="price">Rp 5,000<span>/mo</span></div>
+                    </div>
+                    <p class="desc">Access to addition (+) and subtraction (-) operations.</p>
+                    <button class="plan-btn secondary-btn">Subscribe to Basic</button>
+                </div>
+            </div>
+            
+            <button class="close-modal" id="close-modal">No thanks, I'll count with my fingers</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
