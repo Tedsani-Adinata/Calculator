@@ -1,40 +1,41 @@
-# Soft UI Calculator
+# Paywall Calculator
 
-A web-based calculator built with plain HTML, CSS, and JavaScript, styled with a soft UI look (rounded edges, subtle shadows, smooth interactions).
+A small calculator built with HTML, CSS, and vanilla JavaScript.
 
-For fun, it also has a fake paywall: addition and subtraction work for free, but multiplication and division are locked behind a mock "premium" subscription. It's not a real payment system — just a gag feature that toggles a flag in local storage.
+Addition (+) and subtraction (-) are free. Multiplication (×) and division (÷) are locked behind a fake premium subscription — it's just a gimmick, with the "subscription" state stored in `localStorage`.
+
+![Screenshot](assets/screenshoot1.png)
+
+![Screenshot](assets/screenshoot2.png)
 
 ## Features
 
-- Soft UI styling — rounded buttons, soft shadows, minimal color palette
-- Addition and subtraction available by default
-- Multiplication and division gated behind a mock subscription modal
-- Subscription state persisted in local storage
-- Full keyboard support (numpad, Enter, Backspace, Escape)
-- No frameworks or build tools — just HTML/CSS/JS
+- Full keyboard support (Numpad, Enter, Backspace, Escape)
+- Mock paywall for multiplication and division
+- Subscription status persisted in `localStorage`
+- No frameworks, dependencies, or build step
 
-## Project structure
+## File Structure
 
 ```
+├── assets/
+│   ├── screenshoot1.png
+│   └── screenshoot2.png
 ├── css/
 │   └── style.css     # Styling and animations
 ├── js/
-│   └── script.js      # Calculator logic, paywall check, local storage
+│   └── script.js      # Calculator logic and paywall system
 ├── index.html          # Main page
 └── README.md
 ```
 
-## Running it locally
+## Running It
 
-1. Clone or download the repo.
-2. Open `index.html` in a browser.
+1. Clone or download this repo.
+2. Open `index.html` in your browser.
 
-No dependencies, no build step, no server needed.
-
-## Stack
-
-HTML5, CSS3 (Flexbox/Grid, custom keyframes), vanilla JavaScript (ES6+).
+No setup, `npm install`, or local server needed.
 
 ---
 
-Built as a side project — feel free to fork it, remove the paywall gimmick, or take it further.
+*Built for fun. Fork it, mess with it, or rip out the paywall if you want.*
