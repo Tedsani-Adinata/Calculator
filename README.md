@@ -2,40 +2,38 @@
   <img src="assets/banner.svg" alt="Paywall Calculator" width="100%">
 </p>
 
-Kalkulator web dari HTML, CSS, dan JavaScript murni dengan paywall tiruan. Menekan `=` memunculkan pilihan paket sampai Anda berlangganan. Paket Basic membuka tambah (+) dan kurang (-), paket Premium membuka semua operasi termasuk kali (×) dan bagi (÷). Pilihan paket hanya disimpan di `localStorage`, tidak ada pembayaran sungguhan.
+A calculator built with plain HTML, CSS, and JavaScript, with a mock paywall. Pressing `=` opens a plan picker until you subscribe. Basic unlocks addition (+) and subtraction (-); Premium unlocks everything, including multiplication (×) and division (÷). The chosen plan is only stored in `localStorage`. No real payment happens.
 
 <p align="center">
-  <img src="assets/preview.png" alt="Kalkulator dan tampilan paywall" width="85%">
+  <img src="assets/preview.png" alt="Calculator and paywall screens" width="85%">
 </p>
 
-## Fitur
+## Features
 
-- Dukungan keyboard penuh: angka, `+ - * x /`, `Enter`, `Backspace`, `Esc`
-- Paywall tiruan dengan dua paket: Basic (Rp 5.000) dan Premium (Rp 10.000)
-- Status langganan tersimpan di `localStorage` (kunci `calc_tier`)
-- Tanpa framework, dependensi, maupun build step
+- Full keyboard support: digits, `+ - * x /`, `Enter`, `Backspace`, `Esc`
+- Mock paywall with two plans: Basic (Rp 5,000) and Premium (Rp 10,000)
+- Plan persisted in `localStorage` (key `calc_tier`)
+- No frameworks, dependencies, or build step
 
-## Menjalankan
+## Run
 
 ```bash
 git clone https://github.com/Tedsani-Adinata/Calculator.git
 ```
 
-Buka `index.html` di browser. Selesai.
+Open `index.html` in a browser. Done.
 
-Untuk mengunci ulang fitur premium, jalankan di console browser:
+To lock the premium features again, run this in the browser console:
 
 ```js
 localStorage.removeItem('calc_tier');
 ```
 
-## Struktur
+## Structure
 
 ```
-assets/   banner, preview, dan screenshot asli
+assets/   banner, preview, and original screenshots
 css/      style.css
-js/       script.js (logika kalkulator dan paywall)
+js/       script.js (calculator logic and paywall)
 index.html
 ```
-
-
