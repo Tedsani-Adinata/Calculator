@@ -7,6 +7,7 @@ Kalkulator web dari HTML, CSS, dan JavaScript murni dengan paywall tiruan. Menek
 <p align="center">
   <img src="assets/preview.png" alt="Kalkulator dan tampilan paywall" width="85%">
 </p>
+
 ## Fitur
 
 - Dukungan keyboard penuh: angka, `+ - * x /`, `Enter`, `Backspace`, `Esc`
@@ -36,4 +37,5 @@ css/      style.css
 js/       script.js (logika kalkulator dan paywall)
 index.html
 ```
+
 
