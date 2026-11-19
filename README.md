@@ -1,41 +1,77 @@
-# Paywall Calculator
+<div align="center">
 
-A small calculator built with HTML, CSS, and vanilla JavaScript.
+# 🧮 Paywall Calculator
 
-Addition (+) and subtraction (-) are free. Multiplication (×) and division (÷) are locked behind a fake premium subscription — it's just a gimmick, with the "subscription" state stored in `localStorage`.
+**Kalkulator web sederhana dengan "paywall" palsu untuk perkalian & pembagian.**
 
-![Screenshot](assets/screenshoot1.png)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![No Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)
 
-![Screenshot](assets/screenshoot2.png)
+<img src="assets/screenshoot1.png" alt="Tampilan kalkulator" width="45%"> <img src="assets/screenshoot2.png" alt="Tampilan paywall" width="45%">
 
-## Features
+</div>
 
-- Full keyboard support (Numpad, Enter, Backspace, Escape)
-- Mock paywall for multiplication and division
-- Subscription status persisted in `localStorage`
-- No frameworks, dependencies, or build step
+## 📖 Tentang
 
-## File Structure
+Dibangun hanya dengan HTML, CSS, dan JavaScript murni. Operasi **tambah (+)** dan **kurang (−)** gratis, sedangkan **kali (×)** dan **bagi (÷)** terkunci di balik "langganan premium" palsu. Ini hanya gimmick: status langganan disimpan di `localStorage` dan tidak ada pembayaran sungguhan.
+
+## ✨ Fitur
+
+| Fitur | Keterangan |
+| --- | --- |
+| ⌨️ Dukungan keyboard | Numpad, `Enter`, `Backspace`, `Esc` |
+| 🔒 Paywall tiruan | Perkalian & pembagian butuh "langganan" |
+| 💾 Status tersimpan | Pilihan paket disimpan di `localStorage` (`calc_tier`) |
+| 📦 Tanpa dependensi | Tidak ada framework, `npm install`, atau build step |
+
+## 🚀 Cara Menjalankan
+
+```bash
+git clone https://github.com/Tedsani-Adinata/Calculator.git
+cd Calculator
+```
+
+Lalu buka `index.html` di browser. Tidak perlu server lokal.
+
+## ⌨️ Pintasan Keyboard
+
+| Tombol | Aksi |
+| --- | --- |
+| `0`–`9`, `.` / `,` | Input angka & desimal |
+| `+` `-` | Tambah, kurang |
+| `*` / `x` , `/` | Kali, bagi (perlu premium) |
+| `Enter` / `=` | Hitung hasil |
+| `Backspace` | Hapus satu digit |
+| `Esc` | Bersihkan semua |
+
+## 🗂️ Struktur Proyek
 
 ```
 ├── assets/
 │   ├── screenshoot1.png
 │   └── screenshoot2.png
 ├── css/
-│   └── style.css     # Styling and animations
+│   └── style.css      # Styling dan animasi
 ├── js/
-│   └── script.js      # Calculator logic and paywall system
-├── index.html          # Main page
+│   └── script.js      # Logika kalkulator dan sistem paywall
+├── index.html         # Halaman utama
 └── README.md
 ```
 
-## Running It
+## 🔓 Reset Langganan
 
-1. Clone or download this repo.
-2. Open `index.html` in your browser.
+Untuk mengunci kembali fitur premium, jalankan di console browser:
 
-No setup, `npm install`, or local server needed.
+```js
+localStorage.removeItem('calc_tier');
+```
 
 ---
 
-*Built for fun. Fork it, mess with it, or rip out the paywall if you want.*
+<div align="center">
+
+*Dibuat untuk senang-senang. Silakan fork, modifikasi, atau hapus paywall-nya.* 🎉
+
+</div>
