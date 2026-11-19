@@ -5,7 +5,7 @@
 A calculator built with plain HTML, CSS, and JavaScript, with a mock paywall. Pressing `=` opens a plan picker until you subscribe. Basic unlocks addition (+) and subtraction (-); Premium unlocks everything, including multiplication (×) and division (÷). The chosen plan is only stored in `localStorage`. No real payment happens.
 
 <p align="center">
-  <img src="assets/hero.png" alt="Calculator and paywall screens" width="85%">
+  <img src="assets/showcase.png" alt="Calculator and paywall screens" width="85%">
 </p>
 
 ## Features
@@ -32,9 +32,10 @@ localStorage.removeItem('calc_tier');
 ## Structure
 
 ```
-assets/   banner, hero image, and original screenshots
+assets/   banner, showcase image, and original screenshots
 css/      style.css
 js/       script.js (calculator logic and paywall)
 index.html
 ```
+
 
